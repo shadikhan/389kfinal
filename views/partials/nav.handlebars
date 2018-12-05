@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Recipes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Meals
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/meals/Breakfast">Breakfast</a>
+                    <a class="dropdown-item" href="/meals/Lunch">Lunch</a>
+                    <a class="dropdown-item" href="/meals/Dinner">Dinner</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/alphabetical">A-Z Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/30minutemeals">30 Minute Meals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/5stars">5-Star Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/random">Random Recipe</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <form class="form-inline my-2 my-lg-0" action="/addRecipe">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add a Recipe!</button>
+            </form>
+        </ul>
+
+
+    </div>
+</nav>
