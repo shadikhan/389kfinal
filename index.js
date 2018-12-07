@@ -260,8 +260,8 @@ app.post('/api/addRecipe', function (req, res) {
 
         recipe.save(function (err, recipe) {
             if (err) throw err;
-            res.render('create', {
-                status: "Successfully inserted your recipe :) and the id of if is: " + recipe._id,
+            res.render('recipe', {
+                recipe: recipe,
             });
         });
     }
