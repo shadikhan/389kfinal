@@ -9,7 +9,7 @@ Date: 12/06/2018
 
 Project Topic: Crowdsourced Recipes Application
 
-URL: https://shad-389kfinal.herokuapp.com/
+Heroku Link: https://shad-389kfinal.herokuapp.com/
 
 ---
 
