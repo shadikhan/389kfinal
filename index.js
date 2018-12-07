@@ -67,6 +67,17 @@ app.get("/random", function (req, res) {
     });
 });
 
+// At the /api/random route, display a random recipe as JSON
+// At the /random route, display a random recipe.
+app.get("/api/random", function (req, res) {
+    Recipe.find({}, function (err, recipes) {
+        if (err) throw err;
+        let recipe = recipes[Math.floor(Math.random() * recipes.length)];
+        res.json(recipe);
+    });
+});
+
+
 //At the /recipe/:id route, display a specific recipe.
 app.get('/recipe/:id', function (req, res) {
     Recipe.findOne({_id: req.params.id}, function (err, recipe) {
@@ -79,6 +90,19 @@ app.get('/recipe/:id', function (req, res) {
         }
     });
 });
+
+
+//At the /api/recipe/:id route, display a specific recipe as JSON data
+app.get('/api/recipe/:id', function (req, res) {
+    Recipe.findOne({_id: req.params.id}, function (err, recipe) {
+        if (err) throw err;
+        if (!recipe) return res.render('404');
+        else {
+            res.json(recipe);
+        }
+    });
+});
+
 
 // Render the addRecipe page, to add the recipe
 app.get('/addRecipe', function (req, res) {
@@ -108,6 +132,26 @@ app.get('/alphabetical', function (req, res) {
     });
 });
 
+// Render the /api/alphabetical page, which displays the recipes in alphabetical order as JSON
+app.get('/api/alphabetical', function (req, res) {
+    Recipe.find({}, function (err, recipes) {
+        if (err) throw err;
+        else {
+            let sorted = recipes.sort(function (a, b) {
+                let nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
+                if (nameA < nameB) //sort string ascending
+                    return -1;
+                if (nameA > nameB)
+                    return 1;
+                return 0; //default return value (no sorting)
+            });
+            res.json(sorted);
+        }
+    });
+});
+
+
+
 // Render the /meals/:meal_name page, which displays the recipes with that specific meal name.
 app.get('/meals/:meal_name', function (req, res) {
     Recipe.find({meal: req.params.meal_name}, function (err, recipes) {
@@ -122,6 +166,18 @@ app.get('/meals/:meal_name', function (req, res) {
         }
     });
 });
+
+// Render the /api/meals/:meal_name page, which displays the recipes with that specific meal name as JSON.
+app.get('/api/meals/:meal_name', function (req, res) {
+    Recipe.find({meal: req.params.meal_name}, function (err, recipes) {
+        if (err) throw err;
+        if (!recipes) return res.render('404');
+        else {
+            res.json(recipes);
+        }
+    });
+});
+
 
 // Render the /5stars page, which displays all the 5 star recipes
 app.get('/5stars', function (req, res) {
@@ -138,6 +194,18 @@ app.get('/5stars', function (req, res) {
     });
 });
 
+// Render the /api/5stars page, which displays all the 5 star recipes as JSON
+app.get('/api/5stars', function (req, res) {
+    Recipe.find({rating: 5}, function (err, recipes) {
+        if (err) throw err;
+        if (!recipes) return res.render('404');
+        else {
+           res.json(recipes);
+        }
+    });
+});
+
+// Render the /30minutemeals page, which displays all recipes that take 30 minutes or less to cook.
 app.get('/30minutemeals', function (req, res) {
     Recipe.find({minutes: {$lte: 30}}, function (err, recipes) {
         if (err) throw err;
@@ -152,11 +220,16 @@ app.get('/30minutemeals', function (req, res) {
     });
 });
 
-
-
-
-
-
+// Render the /30minutemeals page, which displays all recipes that take 30 minutes or less to cook.
+app.get('/api/30minutemeals', function (req, res) {
+    Recipe.find({minutes: {$lte: 30}}, function (err, recipes) {
+        if (err) throw err;
+        if (!recipes) return res.render('404');
+        else {
+            res.json(recipes);
+        }
+    });
+});
 
 
 // POST Requests

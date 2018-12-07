@@ -5,9 +5,9 @@
 
 Name: Shad Khan
 
-Date: 
+Date: 12/06/2018
 
-Project Topic: 
+Project Topic: Crowdsourced Recipes Application
 
 URL: 
 
