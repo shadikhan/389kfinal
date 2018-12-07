@@ -18,10 +18,8 @@ function search() {
                 $(this).show("slow", "linear");
         });
 
-        if ($(".col-xs-auto:visible").length === 0) {
+        if ($(".col-xs-auto:visible").length === 0)
             $("#matches").show();
-            console.log("HI")
-        }
         else
             $("#matches").hide();
     })
