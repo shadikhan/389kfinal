@@ -124,7 +124,7 @@ Search Field: Recipe Name
 Navigation Filters
 1. Meal (Breakfast, Lunch, Dinner) -> `  /meals/:meal_name  `
 2. Alphabetical Recipes -> ` /alphabetical `
-3. 30 Minute or Less Recipes -> `  /30minutemeals'  `
-4. 5-Star Recipes -> `  /5stars'  `
+3. 30 Minute or Less Recipes -> `  /30minutemeals  `
+4. 5-Star Recipes -> `  /5stars  `
 5. Random Recipe -> `  /random  `
 
