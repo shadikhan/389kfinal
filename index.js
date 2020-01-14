@@ -14,7 +14,7 @@ dotenv.load();
 console.log(process.env.MONGODB);
 
 // Connect to Sandbox MongoDB
-mongoose.connect(process.env.MONGODB);
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true });
 mongoose.connection.on('error', function (err) {
     console.log("Connection was unable to take place");
     process.exit(1);
