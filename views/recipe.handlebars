@@ -1,26 +1,33 @@
-<br>
-<div class="container m-auto">
-    <h1 align = "center">{{recipe.name}}</h1>
-    <h2 align = "center">{{recipe.meal}} | {{recipe.rating}}/5 stars | {{recipe.minutes}} minutes | id: {{recipe._id}}</h2>
+<div class="container m-auto text-center">
+    <br>
+    <h1>{{recipe.name}}</h1>
+    <h4>{{recipe.meal}} | {{recipe.rating}}/5 stars | {{recipe.minutes}} minutes | id: {{recipe._id}}
+    </h4>
     <br>
     {{#if recipe.description}}
-        <h3 align = "center">Description:</h3>
-        <h6 align="center">{{recipe.description}}</h6>
+    <h3><u>Description:</u></h3>
+    <p>{{recipe.description}}</p>
     {{/if}}
     <br>
-    <h3 align = "center">Ingredients:</h3>
-    <ul class="list-group">
+    <h3><u>Ingredients:</u></h3>
     {{#each recipe.ingredients}}
-        <li class="list-group-item list-group-item-action">{{this}}</li>
+    <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label h5" for="defaultCheck1">
+            {{this}}
+        </label>
+    </div>
     {{/each}}
-    </ul>
     <br>
-    <h3 align = "center">Instructions:</h3>
-    <ul class="list-group">
-        {{#each recipe.instructions}}
-            <li class="list-group-item list-group-item-action">{{this}}</li>
-        {{/each}}
-    </ul>
+    <h3><u>Instructions:</u></h3>
+    {{#each recipe.instructions}}
+    <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label h5" for="defaultCheck1">
+            {{this}}
+        </label>
+    </div>
+    {{/each}}
     <br>
     <br>
 </div>
