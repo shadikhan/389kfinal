@@ -8,7 +8,7 @@ function search() {
         input = String(input).toLowerCase();
         input = input.replace(/ +(?= )/g,'');
 
-        $(".col-xs-auto").each(function(){
+        $(".col-md-6").each(function(){
             let name = $(this).attr('id');
             name = String(name).toLowerCase();
             name = name.replace(/ +(?= )/g,'');
@@ -18,7 +18,7 @@ function search() {
                 $(this).show("slow", "linear");
         });
 
-        if ($(".col-xs-auto:visible").length === 0)
+        if ($(".col-md-6:visible").length === 0)
             $("#matches").show();
         else
             $("#matches").hide();

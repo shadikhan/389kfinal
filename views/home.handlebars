@@ -1,30 +1,32 @@
-<br>
-<h1 style="text-align: center">Recipes Application</h1>
-<h5 style="text-align: center">Feel free to add any recipes that you know of, or check out some of the existing ones we have!</h5>
-<br>
-<div class="input-group m-auto" style="width: 50em;">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Search for a recipe name!</span>
-    </div>
-    <input type="text" class="form-control" id = "search-bar" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-</div>
-<br>
-<h3 align="center" id="matches">There are no matches :(</h3>
 <div class="container">
-    <div class="row">
-        <div class="card-group">
-            {{#each recipes}}
-                <div class="col col-xs-auto" id="{{this.name}}">
-                    <div class="card mb-4" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{this.name}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{this.meal}} | {{this.rating}}/5 stars | {{this.minutes}} minutes</h6>
-                            <p class="card-text">{{this.description}}</p>
-                            <a href="/recipe/{{this._id}}" class="card-link">Instructions & Ingredients</a>
-                        </div>
-                    </div>
-                </div>
-            {{/each}}
+
+    <div class="text-center">
+        <br>
+        <h1>Recipes Application</h1>
+        <h5>Feel free to add any recipes that you know of, or check out some of the existing ones we have!</h5>
+        <br>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="search-bar" placeholder="Search for a recipe name!" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
+        <br>
+        <h3 id="matches">There are no matches :(</h3>
+    </div>
+
+    <div class="row">
+        {{#each recipes}}
+        <div class="col-md-6 col-lg-4 col-xl-3 py-2" id="{{this.name}}">
+            <div class="card">
+                <div class="card-block text-center">
+                    <h4 class="card-title">{{this.name}}</h4>
+                    <p class="card-text">{{this.meal}} | {{this.rating}}/5 stars | {{this.minutes}}
+                        minutes</p>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="/recipe/{{this._id}}" class="card-link">
+                        Instructions & Ingredients
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>
